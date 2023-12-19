@@ -1,9 +1,11 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import { CilMenu} from "./Icons";
 
 
 export default function MenuDropdown() {
+  const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   return (
     
@@ -18,8 +20,8 @@ export default function MenuDropdown() {
      {isOpen && (
        <div className="absolute right-1 z-50 mt-6 w-40 rounded-md shadow-lg bg-white ">
          <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
-           <a  href="/user" className=" px-4 py-2 text-xl" role="menuitem">Home</a>
-           <a href="/" className="block px-4 py-2 text-xl hover:text-red-500" role="menuitem">Logout</a>
+           <a onClick={()=>navigate('/user')}  href="" className=" px-4 py-2 text-xl" role="menuitem">Home</a>
+           <a onClick={()=>navigate('/')} href="" className="block px-4 py-2 text-xl hover:text-red-500" role="menuitem">Logout</a>
            
          </div>
        </div>
